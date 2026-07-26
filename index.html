@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veloce</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <header class="bg-gray-100 shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
+
+            <h1 class="text-3xl font-bold">
+                <span class="text-blue-600">V</span>eloce
+            </h1>
+
+            <ul class="hidden md:flex items-center gap-8 text-2lg font-medium text-gray-600">
+                <li><a href="#home" class="hover:text-blue-600 transition">Home</a></li>
+                <li><a href="#catalog" class="hover:text-blue-600 transition">Shop</a></li>
+                <li><a href="#category" class="hover:text-blue-600 transition">Category</a></li>
+                <li><a href="#testimonials" class="hover:text-blue-600 transition">Review</a></li>
+                <li><a href="#faq" class="hover:text-blue-600 transition">FAQ</a></li>
+                <li><a href="#contact" class="hover:text-blue-600 transition">Contact</a></li>
+            </ul>
+
+            <div class="relative flex items-center gap-6">
+                <!-- SEARCH BAR -->
+                <div class="flex items-center border border-gray-300 rounded-full overflow-hidden mr-10">
+                    <input id="searchInput" type="text" placeholder="Search products..."
+                        class="px-4 py-2 w-60 text-sm focus:outline-none bg-white">
+
+                    <button class="bg-blue-600 text-white px-4 py-2 hover:bg-blue-700 transition">
+                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                    </button>
+                </div>
+
+
+                <div onclick="openWishlist()" class="relative cursor-pointer hover:text-blue-600 transition">
+
+                    <i class="fa-regular fa-heart text-lg"></i>
+
+                    <span id="wishlistBadge"
+                        class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+
+                        0
+
+                    </span>
+
+                </div>
+                <div onclick="openCart()" class="relative cursor-pointer hover:text-blue-600 transition">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+
+                    <span id="cartCount"
+                        class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                        0
+                    </span>
+                </div>
+
+                <div class="relative">
+
+                    <button id="accountBtn" class="text-xl hover:text-blue-600 transition">
+                        <i class="fa-regular fa-user text-lg"></i>
+                    </button>
+
+                    <div id="accountDropdown"
+                        class="hidden absolute right-0 top-14 w-80 bg-white rounded-2xl shadow-2xl border z-50">
+
+                        <div id="accountContent" class="p-6">
+
+                            <h2 class="text-2xl font-bold text-center mb-6">
+                                Login
+                            </h2>
+
+                            <input id="loginEmail" type="email" placeholder="Email"
+                                class="w-full border rounded-lg px-4 py-3 mb-4 focus:outline-none">
+
+                            <input id="loginPassword" type="password" placeholder="Password"
+                                class="w-full border rounded-lg px-4 py-3 mb-5 focus:outline-none">
+
+                            <button id="loginBtn"
+                                class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+
+                                Login
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+        </nav>
+    </header>
+
+    <!-- SLIDER SECTION -->
+    <section id="home">
+        <div class="relative w-full h-[90vh] overflow-hidden">
+
+            <div id="slider" class="flex transition-transform duration-700 ease-in-out">
+
+                <!-- Slide 1 -->
+                <div class="relative min-w-full h-screen">
+                    <img src="slider1.png" class="w-full h-screen object-cover brightness-50">
+
+                    <div class="absolute inset-0 flex flex-col justify-center px-24 text-white">
+                        <p class="text-blue-400 text-xl font-semibold mb-4">
+                            Exclusive Flash Sale
+                        </p>
+
+                        <h1 class="text-6xl font-bold mb-6">
+                            Next-Gen Wearables
+                        </h1>
+
+                        <p class="text-xl w-[600px] mb-8">
+                            Elevate your fitness, style, and productivity with the new Vanguard Pro Smartwatch line.
+                            Special launch discounts inside!
+                        </p>
+
+                        <button onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})"
+                            class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg w-fit text-lg font-semibold transition">
+                            Shop Collection
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="relative min-w-full h-screen">
+                    <img src="slider3.png" class="w-full h-screen object-cover brightness-50">
+
+                    <div class="absolute inset-0 flex flex-col justify-center px-24 text-white">
+                        <p class="text-blue-400 text-xl font-semibold mb-4">
+                            Premium Sound
+                        </p>
+
+                        <h1 class="text-6xl font-bold mb-6">
+                            Apex Audio Series
+                        </h1>
+
+                        <p class="text-xl w-[600px] mb-8">
+                            Experience acoustic perfection with active noise cancellation and ergonomic craft. Over-ear
+                            and in-ear models starting at just $49.
+                        </p>
+
+                        <button onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})"
+                            class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg w-fit text-lg font-semibold transition">
+                            Shop Collection
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="relative min-w-full h-screen">
+                    <img src="slider2.png" class="w-full h-screen object-cover brightness-50">
+
+                    <div class="absolute inset-0 flex flex-col justify-center items-start text-left pl-24 text-white">
+                        <p class="text-blue-400 text-xl font-semibold mb-4">
+                            Modern Fashion
+                        </p>
+
+                        <h1 class="text-6xl font-bold mb-6">
+                            Urban Minimal Style
+                        </h1>
+
+                        <p class="text-xl  mb-8">
+                            Discover premium clothing and accessories for every occasion.
+                        </p>
+
+                        <button onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})"
+                            class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg w-fit text-lg font-semibold transition">
+                            Shop Collection
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <button onclick="prevSlide()"
+                class="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-200 text-xl hover:bg-blue-600 transition">
+                ❮
+            </button>
+
+            <button onclick="nextSlide()"
+                class="absolute right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gray-200 text-xl hover:bg-blue-600 transition">
+                ❯
+            </button>
+
+            <div id="dots" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
+                <button class="w-3 h-3 rounded-full bg-white opacity-100" onclick="goToSlide(0)"></button>
+                <button class="w-3 h-3 rounded-full bg-white opacity-50" onclick="goToSlide(1)"></button>
+                <button class="w-3 h-3 rounded-full bg-white opacity-50" onclick="goToSlide(2)"></button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CATEGORY SECTION -->
+    <section id="category" class="py-24 bg-gray-50">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-14">
+
+                <h2 class="text-5xl font-bold text-gray-900 mb-4">
+                    Shop by Category
+                </h2>
+
+                <p class="text-xl text-gray-500">
+                    Discover curated collections tailored to your lifestyle
+                </p>
+
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Electronics -->
+                <div class="group relative overflow-hidden rounded-3xl cursor-pointer h-72">
+
+                    <img src="electronics.jpg"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+                    <div class="absolute bottom-8 left-8 text-white">
+
+                        <h3 class="text-4xl font-bold mb-2">
+                            Electronics
+                        </h3>
+
+                        <p class="text-lg text-gray-200 mb-4">
+                            Smart Tech & Audio
+                        </p>
+
+                        <a href="#catalog" onclick="showCategory('Electronics')"
+                            class="font-semibold flex items-center gap-2">
+                            View Collection
+                            <i class="fa-solid fa-arrow-right transition group-hover:translate-x-2"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Fashion -->
+                <div class="group relative overflow-hidden rounded-3xl cursor-pointer h-72">
+
+                    <img src="fashion.jpg"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+                    <div class="absolute bottom-8 left-8 text-white">
+
+                        <h3 class="text-4xl font-bold mb-2">
+                            Fashion
+                        </h3>
+
+                        <p class="text-lg text-gray-200 mb-4">
+                            Apparel & Accessories
+                        </p>
+
+                        <a href="#catalog" onclick="showCategory('Fashion')"
+                            class="font-semibold flex items-center gap-2">
+                            View Collection
+                            <i class="fa-solid fa-arrow-right transition group-hover:translate-x-2"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Home -->
+                <div class="group relative overflow-hidden rounded-3xl cursor-pointer h-72">
+
+                    <img src="home.jpg"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+                    <div class="absolute bottom-8 left-8 text-white">
+
+                        <h3 class="text-4xl font-bold mb-2">
+                            Home & Living
+                        </h3>
+
+                        <p class="text-lg text-gray-200 mb-4">
+                            Decor & Workspace
+                        </p>
+
+                        <a href="#catalog" onclick="showCategory('Home & Living')"
+                            class="font-semibold flex items-center gap-2">
+                            View Collection
+                            <i class="fa-solid fa-arrow-right transition group-hover:translate-x-2"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Accessories -->
+                <div class="group relative overflow-hidden rounded-3xl cursor-pointer h-72">
+
+                    <img src="accessorie.jpg"
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+                    <div class="absolute bottom-8 left-8 text-white">
+
+                        <h3 class="text-4xl font-bold mb-2">
+                            Accessories
+                        </h3>
+
+                        <p class="text-lg text-gray-200 mb-4">
+                            Watches, Bags & More
+                        </p>
+
+                        <a href="#catalog" onclick="showCategory('Accessories')"
+                            class="font-semibold flex items-center gap-2">
+                            View Collection
+                            <i class="fa-solid fa-arrow-right transition group-hover:translate-x-2"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CATALOG SECTION -->
+    <section id="catalog" class="py-24 bg-gray-50">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-14">
+
+                <h2 class="text-5xl font-bold mb-4">
+                    Explore Catalog
+                </h2>
+
+                <p class="text-gray-500 text-lg">
+                    Browse our complete collection of premium products.
+                </p>
+
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- Products -->
+                <div class="lg:col-span-3">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="text-2xl font-bold">Products</h3>
+
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-start">
+                        <!-- Product 1 -->
+                        <div class="page1 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="headset.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-orange-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    HOT
+                                </span>
+
+                                <button onclick="addToWishlist(0, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Apex Wireless Headphones
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Premium wireless headphones with active noise cancellation.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.8)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹2,999
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(0)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">Details</button>
+
+                                    <button onclick="addToCart(0)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="page1 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="smart.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-red-700 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    SALE
+                                </span>
+
+                                <button onclick="addToWishlist(1, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Vanguard Smart Watch Ultra
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Premium smartwatch with health metrics, GPS, and custom watch faces.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.6)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹1,999
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+                                    <button onclick="openProduct(1)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">Details</button>
+
+                                    <button onclick="addToCart(1)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="page1 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="keyboard.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-blue-700 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    NEW
+                                </span>
+
+                                <button onclick="addToWishlist(2, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Horizon Mechanical Keyboard
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Compact hot-swappable mechanical keyboard with RGB backlighting.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.7)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹5,775
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+                                    <button onclick="openProduct(2)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">Details</button>
+
+
+                                    <button onclick="addToCart(2)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="page1 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="lumina.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-blue-700 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    NEW
+                                </span>
+
+                                <button onclick="addToWishlist(3, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Lumina Ambient Light
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    RGB dynamic ambient light bar syncs with music and app control.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.5)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹999
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(3)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">Details</button>
+
+
+                                    <button onclick="addToCart(3)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="page1 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="cam.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-orange-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    HOT
+                                </span>
+
+                                <button onclick="addToWishlist(4, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Studio Tripod Camera
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Sturdy aluminum tripod for DSLR cameras and smartphones.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.6)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹39,999
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(4)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">Details</button>
+
+                                    <button onclick="addToCart(4)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="page1 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="speaker.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-red-700 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    SALE
+                                </span>
+
+                                <button onclick="addToWishlist(5, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    SonicBoom Speaker
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Rugged waterproof outdoor speaker with deep bass and stereo sound.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.5)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹1,499
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(5)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">Details</button>
+
+
+                                    <button onclick="addToCart(5)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <!-- PRODUCT 7 -->
+                        <div class="page2 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Fashion">
+
+                            <div class="relative overflow-hidden">
+                                <img src="jacket.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <button onclick="addToWishlist(6, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Fashion
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Urban Leather Jacket
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Classic genuine leather jacket designed for comfort and rugged elegance.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.5)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹4,599
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(6)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(6)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 8 -->
+                        <div class="page2 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Fashion">
+
+                            <div class="relative overflow-hidden">
+                                <img src="jeans.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <button onclick="addToWishlist(7, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Fashion
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Trekker Waterproof Jacket
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    All-weather windbreaker with thermal lining and breathable shell.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.7)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹1,500
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(7)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(7)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 9 -->
+                        <div class="page2 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Fashion">
+
+                            <div class="relative overflow-hidden">
+                                <img src="glass.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-orange-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    HOT
+                                </span>
+
+                                <button onclick="addToWishlist(8, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Fashion
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Eclipse Sunglasses
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Unisex retro sunglasses with polarized UV400 protective lenses.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.5)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹345
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(8)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(8)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 10 -->
+                        <div class="page2 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Fashion">
+
+                            <div class="relative overflow-hidden">
+                                <img src="shoe.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-red-700 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    SALE
+                                </span>
+
+                                <button onclick="addToWishlist(9, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Fashion
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    AeroFit Premium Running Shoes
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Lightweight and breathable running sneakers for long-distance training.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.3)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹820
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(9)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(9)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 11 -->
+                        <div class="page2 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Fashion">
+
+                            <div class="relative overflow-hidden">
+                                <img src="bag.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <button onclick="addToWishlist(10, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Fashion
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Impulse Travel laptop Backpack
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Water-resistant travel backpack with USB port and laptop sleeve.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.3)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹699
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(10)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(10)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 12 -->
+                        <div class="page2 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Fashion">
+
+                            <div class="relative overflow-hidden">
+                                <img src="tshirt.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-orange-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    HOT
+                                </span>
+
+                                <button onclick="addToWishlist(11, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Fashion
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Sunset Printed backdrop tshirt
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    This amazing printed T-Shirt has a great finish and uses POLYESTER fabric.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.9)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹399
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(11)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(11)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 13 -->
+                        <div class="page3 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="iphone.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-blue-700 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    SALE
+                                </span>
+
+                                <button onclick="addToWishlist(12, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Brands
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Apple iphone 16
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    The base Apple iPhone 16 features a 6.1-inch Retina XDR display powered by the A18
+                                    chipset and 8 GB of RAM.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.5)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹45,999
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(12)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(12)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 14 -->
+                        <div class="page3 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="samsung.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <button onclick="addToWishlist(13, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Samsung Galaxy S25 Ultra
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    a powerhouse featuring the Snapdragon processor, a 6.8-inch AMOLED 2X display.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.9)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹98,999
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(13)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(13)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 15 -->
+                        <div class="page3 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="sony.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-red-700 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    NEW
+                                </span>
+
+                                <button onclick="addToWishlist(14, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Sony Xperia 1 Vii
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    5G Android smartphone. Announced May 2025. Features 6.5″ display, Snapdragon 8 Elite
+                                    chipset
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(5.0)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹1,09,999
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(14)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(14)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 16 -->
+                        <div class="page3 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="apple.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-orange-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    HOT
+                                </span>
+
+                                <button onclick="addToWishlist(15, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Apple 13‐inch MacBook
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Sturdy aluminum tripod for DSLR cameras and smartphones 5-core GPU
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.7)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹79,900
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(15)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(15)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 17 -->
+                        <div class="page3 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="samsung2.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-orange-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    HOT
+                                </span>
+
+                                <button onclick="addToWishlist(16, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Samsung Galaxy Book4
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Snapdragon & Intel Core Ultra processors. AI-powered Copilot+
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.9)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹1,22,990
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(16)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(16)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 18 -->
+                        <div class="page3 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Electronics">
+
+                            <div class="relative overflow-hidden">
+                                <img src="sony2.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <span
+                                    class="absolute top-3 left-3 bg-orange-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                                    HOT
+                                </span>
+
+                                <button onclick="addToWishlist(17, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Electronics
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Sony VAIO Fit 15E
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Sony VAIO laptops were premium computers first made by Sony
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.3)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹83,257
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(17)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(17)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 19 -->
+                        <div class="page4 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Accessories">
+
+                            <div class="relative overflow-hidden">
+                                <img src="accessories.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <button onclick="addToWishlist(18, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Accessories
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Elegant Jhumka Earring
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Add timeless charm to your ethnic look with these beutifully crafted earrings
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.2)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹519
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(18)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(18)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 20 -->
+                        <div class="page4 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Accessories">
+
+                            <div class="relative overflow-hidden">
+                                <img src="makeup.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <button onclick="addToWishlist(19, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Accessories
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Premium Collection
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Enhance your natural beauty with high-quality makeup essentials.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.7)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹1,789
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(19)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(19)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 21 -->
+                        <div class="page4 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Accessories">
+
+                            <div class="relative overflow-hidden">
+                                <img src="accessories3.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <button onclick="addToWishlist(20, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Accessories
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Men's Fashion Collection
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Complete your look with stylish and versatile men's accessories
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.5)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹655
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(20)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(20)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 22 -->
+                        <div class="page4 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Home & Living">
+
+                            <div class="relative overflow-hidden">
+                                <img src="decor.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <button onclick="addToWishlist(21, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Home & Living
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Stylish Wall Decor
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Transform your space with elegant wall decor pieces that add personality and charm
+                                    to your room.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.6)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹4,500
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(21)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(21)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 23 -->
+                        <div class="page4 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Home & Living">
+
+                            <div class="relative overflow-hidden">
+                                <img src="decor2.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <button onclick="addToWishlist(22, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Home & Living
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Modern Wall Paintings
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Elevate your interiors with stunning wall paintings and art prints that brings
+                                    style, color, personality to space.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(4.8)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹2,777
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(22)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(22)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- PRODUCT 24 -->
+                        <div class="page4 bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition duration-300 group"
+                            data-category="Home & Living">
+
+                            <div class="relative overflow-hidden">
+                                <img src="decor3.jpg"
+                                    class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+
+                                <button onclick="addToWishlist(23, this)"
+                                    class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                                    <i class="fa-regular fa-heart"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-4">
+
+                                <p class="text-blue-600 uppercase text-xs font-semibold tracking-wider">
+                                    Home & Living
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-1">
+                                    Plant Collection
+                                </h3>
+
+                                <p class="text-gray-500 text-sm mt-2 leading-5">
+                                    Bring freshness and natural beauty to your home with vibrant plants for every space.
+                                </p>
+
+                                <div class="flex items-center mt-2">
+                                    <div class="text-yellow-400 text-sm">★★★★★</div>
+                                    <span class="ml-2 text-gray-500 text-sm">(5.0)</span>
+                                </div>
+
+                                <h4 class="text-2xl font-bold mt-2">
+                                    ₹250
+                                </h4>
+
+                                <div class="grid grid-cols-2 gap-2 mt-3">
+
+                                    <button onclick="openProduct(23)"
+                                        class="border border-gray-300 rounded-lg py-2 text-sm font-semibold hover:bg-gray-100 transition">
+                                        Details
+                                    </button>
+
+                                    <button onclick="addToCart(23)"
+                                        class="bg-blue-600 text-white rounded-lg py-2 text-sm font-semibold hover:bg-blue-700 transition">
+                                        Add Cart
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center mt-12 gap-3">
+
+                        <button id="btn1" onclick="showPage(1)" class="w-10 h-10 rounded-lg bg-blue-600 text-white">
+                            1
+                        </button>
+
+                        <button id="btn2" onclick="showPage(2)"
+                            class="w-10 h-10 rounded-lg border border-gray-300 hover:bg-blue-600 hover:text-white transition">
+                            2
+                        </button>
+
+                        <button id="btn3" onclick="showPage(3)"
+                            class="w-10 h-10 rounded-lg border border-gray-300 hover:bg-blue-600 hover:text-white transition">
+                            3
+                        </button>
+
+                        <button id="btn4" onclick="showPage(4)"
+                            class="w-10 h-10 rounded-lg border border-gray-300 hover:bg-blue-600 hover:text-white transition">
+                            4
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CUSTOMER FEED BACK -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+
+        <h1 class="text-5xl font-bold text-center">
+            Customer Feedback
+        </h1>
+
+        <p class="text-center text-gray-500 mt-3">
+            Read stories of shoppers who loved our curated good
+        </p>
+
+        <div
+            class="max-w-5xl mx-auto mt-12 bg-white rounded-3xl shadow-xl border border-gray-200 p-10 text-center min-h-[350px]">
+
+            <p id="review" class="text-gray-600 text-lg leading-8">
+            </p>
+
+            <img id="photo" src="" class="w-24 h-24 rounded-full object-cover mx-auto mt-8 border-4 border-blue-600">
+
+            <h2 id="name" class="text-2xl font-bold mt-5">
+            </h2>
+
+            <div class="text-yellow-400 text-2xl mt-2">
+                ★★★★★
+            </div>
+
+        </div>
+
+    </section>
+    <!-- FREQUENTLY ASKED QUESTIONS SECTION -->
+
+    <section id="faq" class="py-16 px-8 font-lato">
+
+        <h1 class="text-4xl font-bold text-center mb-10">
+            Frequently Asked Questions
+        </h1>
+        <h4 class="text-1xl text-gray-500 text-center mb-10"> "Find immediate answers regarding orders, returns, and
+            premium service"</h4>
+
+        <div class="max-w-3xl mx-auto space-y-4">
+
+            <details class="border rounded-lg p-4">
+                <summary class="font-bold cursor-pointer">
+                    1. How can I place an order?
+                </summary>
+                <p class="mt-2 text-gray-600">
+                    Choose a product, add it to the cart, and proceed to checkout.
+                </p>
+            </details>
+
+            <details class="border rounded-lg p-4">
+                <summary class="font-bold cursor-pointer">
+                    2. What payment methods do you accept?
+                </summary>
+                <p class="mt-2 text-gray-600">
+                    We accept Credit Card, Debit Card, UPI, and Net Banking.
+                </p>
+            </details>
+
+            <details class="border rounded-lg p-4">
+                <summary class="font-bold cursor-pointer">
+                    3. How long does delivery take?
+                </summary>
+                <p class="mt-2 text-gray-600">
+                    Delivery usually takes 3 - 7 business days.
+                </p>
+            </details>
+
+            <details class="border rounded-lg p-4">
+                <summary class="font-bold cursor-pointer">
+                    4. Can I return a product?
+                </summary>
+                <p class="mt-2 text-gray-600">
+                    Yes, you can return the product within 7 days.
+                </p>
+            </details>
+
+            <details class="border rounded-lg p-4">
+                <summary class="font-bold cursor-pointer">
+                    5. How can I contact customer support?
+                </summary>
+                <p class="mt-2 text-gray-600">
+                    You can contact us by email or phone 24/7.
+                </p>
+            </details>
+
+        </div>
+
+    </section>
+
+    <!-- GET IN TOUCH SECTION -->
+    <section id="contact" class="py-20 bg-gray-50">
+
+        <h1 class="text-5xl font-bold text-center mb-3">
+            Get in Touch
+        </h1>
+
+        <p class="text-center text-gray-500 mb-12">
+            Send us your queries, feedback or custom product requests
+        </p>
+
+
+        <div class="max-w-6xl mx-auto flex items-start gap-10">
+
+
+            <div class="w-1/3 rounded-2xl shadow-lg p-8 contact">
+
+                <h2 class="text-3xl font-bold mb-6">
+                    Contact Details
+                </h2>
+
+                <p class="text-gray-500 mb-8">
+                    Our responsive support staff is here to reply to email inquiries within 24 hours.
+                </p>
+
+                <p class="mb-4 icons"> <i class="fa-solid fa-envelope"></i> support@veloce.com</p>
+
+                <p class="mb-4 icons"><i class="fa-solid fa-phone"></i> +91 9876543210</p>
+
+                <p class="icons"><i class="fa-solid fa-location-dot"></i> Delhi, India</p>
+
+            </div>
+
+
+            <div class="w-2/3 bg-white rounded-2xl shadow-lg p-8">
+
+                <form id="contactForm">
+
+                    <div class="grid grid-cols-2 gap-6">
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">
+                                FULL NAME*
+                            </label>
+
+                            <input id="fullName" type="text" placeholder="Enter your full name"
+                                class="border rounded-lg p-3 w-full">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">
+                                EMAIL ADDRESS*
+                            </label>
+
+                            <input id="email" type="email" placeholder="Enter your email"
+                                class="border rounded-lg p-3 w-full">
+                        </div>
+
+                    </div>
+
+                    <div class="mt-6">
+
+                        <label class="block text-gray-700 font-semibold mb-2">
+                            SUBJECT
+                        </label>
+
+                        <input id="subject" type="text" placeholder="Question about bulk orders..."
+                            class="border rounded-lg p-3 w-full">
+
+                    </div>
+
+                    <div class="mt-6">
+
+                        <label class="block text-gray-700 font-semibold mb-2">
+                            MESSAGE DETAILS*
+                        </label>
+
+                        <textarea id="message" rows="6" placeholder="Write your message details here..."
+                            class="border rounded-lg p-3 w-full resize-none"></textarea>
+
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-blue-600 text-white py-3 rounded-lg mt-6 hover:bg-blue-700 transition">
+
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </div>
+
+    </section>
+
+    <footer class="bg-gray-900 text-white py-14">
+
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-4 gap-10">
+
+            <div>
+                <h2 class="text-4xl font-bold mb-5">
+                    <span class="text-blue-600">V</span>eloce
+                </h2>
+
+                <p class="text-gray-400 leading-7">Your one-stop destination for electronics, fashion, accessories and
+                    home essentials at affordable prices.</p>
+
+                <div class="flex gap-4 mt-6 text-xl">
+                    <a href="#" class="hover:text-blue-500"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-blue-500"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-blue-500"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="hover:text-blue-500"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold mb-5">
+                    Quick Links
+                </h3>
+
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="#" class="hover:text-blue-500">Home</a></li>
+                    <li><a href="#" class="hover:text-blue-500">Shop</a></li>
+                    <li><a href="#" class="hover:text-blue-500">Categories</a></li>
+                    <li><a href="#" class="hover:text-blue-500">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold mb-5">
+                    Contact
+                </h3>
+
+                <p class="text-gray-400 mb-3">
+                    <i class="fa-solid fa-envelope mr-2"></i>
+                    support@veloce.com
+                </p>
+
+                <p class="text-gray-400 mb-3">
+                    <i class="fa-solid fa-phone mr-2"></i>
+                    +91 9876543210
+                </p>
+
+                <p class="text-gray-400">
+                    <i class="fa-solid fa-location-dot mr-2"></i>
+                    Delhi, India
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold mb-5">
+                    Newsletter
+                </h3>
+
+                <p class="text-gray-400 mb-4">
+                    Subscribe to receive our latest offers and updates.
+                </p>
+
+                <input type="email" placeholder="Enter your email"
+                    class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 outline-none">
+
+                <button class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg mt-4 transition">
+                    Subscribe
+                </button>
+            </div>
+
+        </div>
+
+        <hr class="border-gray-700 my-10">
+
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-gray-400">
+
+            <p>
+                © 2026 Veloce. All Rights Reserved.
+            </p>
+
+            <p class="mt-4 md:mt-0">
+                Designed by Team Veloce
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- Product Details Modal -->
+
+    <div id="productModal" class="fixed inset-0 bg-black/60 hidden justify-center items-center z-50">
+
+        <div class="bg-white rounded-2xl w-[90%] max-w-4xl p-8 relative">
+
+            <!-- Close Button -->
+            <button onclick="closeProduct()" class="absolute top-4 right-5 text-3xl hover:text-red-500">
+                &times;
+            </button>
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- Product Image -->
+                <img id="modalImage" src="" class="w-full h-80 object-cover rounded-xl">
+
+                <!-- Product Details -->
+                <div>
+
+                    <p id="modalCategory" class="text-blue-600 uppercase font-semibold">
+                    </p>
+
+                    <h1 id="modalName" class="text-4xl font-bold mt-2">
+                    </h1>
+
+                    <div id="modalRating" class="text-yellow-400 text-xl mt-3">
+                    </div>
+
+                    <h2 id="modalPrice" class="text-3xl font-bold mt-5">
+                    </h2>
+
+                    <p id="modalDescription" class="text-gray-600 mt-5 leading-7">
+                    </p>
+
+                    <div class="mt-6 space-y-2">
+
+                        <p>
+                            <strong>Brand :</strong>
+                            <span id="modalBrand"></span>
+                        </p>
+
+                        <p>
+                            <strong>Availability :</strong>
+                            <span id="modalStock"></span>
+                        </p>
+
+                    </div>
+
+                    <button id="modalAddCart"
+                        class="mt-8 bg-blue-600 text-white px-8 py-3 rounded-xl hover:bg-blue-700 transition">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Cart Panel -->
+    <div id="cartPanel"
+        class="fixed top-0 right-[-100%] w-[400px] h-full bg-white shadow-2xl transition-all duration-500 z-50 flex flex-col">
+
+        <div class="flex justify-between items-center p-6 border-b">
+
+            <h2 class="text-2xl font-bold">
+                Shopping Cart
+            </h2>
+
+            <button onclick="closeCart()" class="text-3xl hover:text-red-500">
+                &times;
+            </button>
+
+        </div>
+
+        <!-- Products -->
+        <div id="cartItems" class="flex-1 overflow-y-auto p-6">
+
+            <p class="text-gray-500 text-center mt-10">
+                Your cart is empty.
+            </p>
+
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="border-t p-6 bg-gray-50">
+
+            <div class="flex justify-between mb-2">
+                <span>Subtotal</span>
+                <span id="subtotal">₹0</span>
+            </div>
+
+            <div class="flex justify-between mb-2">
+                <span>GST (18%)</span>
+                <span id="tax">₹0</span>
+            </div>
+
+            <div class="flex justify-between text-xl font-bold mb-5">
+                <span>Total</span>
+                <span id="grandTotal">₹0</span>
+            </div>
+
+            <button onclick="checkout()"
+                class="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition">
+
+                Proceed to Checkout
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- WISHLIST PANEL -->
+    <div id="wishlistPanel"
+        class="fixed top-0 right-[-100%] w-[400px] h-full bg-white shadow-2xl transition-all duration-500 z-50 flex flex-col">
+
+        <!-- Header -->
+        <div class="flex justify-between items-center p-6 border-b">
+
+            <h2 class="text-2xl font-bold">
+                My Wishlist (<span id="wishlistCount">0</span>)
+            </h2>
+
+            <button onclick="closeWishlist()" class="text-3xl hover:text-red-500 transition">
+                &times;
+            </button>
+
+        </div>
+
+        <!-- Wishlist Items -->
+        <div id="wishlistItems" class="flex-1 overflow-y-auto p-6">
+
+            <div class="flex flex-col items-center justify-center h-full text-center text-gray-500">
+
+                <i class="fa-regular fa-heart text-7xl mb-6 text-gray-300"></i>
+
+                <h3 class="text-3xl font-bold text-gray-800">
+                    Your Wishlist is Empty
+                </h3>
+
+                <p class="mt-4 text-lg">
+                    Keep track of products you adore by tapping the
+                    heart icon on cards.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="toast"
+        class="fixed top-5 right-5 bg-green-600 text-white px-6 py-3 rounded-xl shadow-xl hidden z-50 transition-all duration-300">
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

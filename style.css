@@ -1,0 +1,9 @@
+.icons i{
+    color: blue;
+}
+.contact{
+    background-color: rgb(229, 240, 250);
+}
+input, textarea{
+    background-color: rgb(229, 240, 250);
+}
