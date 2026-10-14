@@ -7,3 +7,12 @@
 input, textarea{
     background-color: rgb(229, 240, 250);
 }
+
+/* ---------- MOBILE / TABLET ---------- */
+/* The sticky header is two rows tall below 1024px, so leave room
+   when a menu link or button jumps to a section. */
+@media (max-width: 1023px) {
+    section[id] {
+        scroll-margin-top: 7.5rem;
+    }
+}
