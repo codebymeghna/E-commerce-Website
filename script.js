@@ -632,7 +632,7 @@ function openWishlist() {
 }
 
 function closeWishlist() {
-  document.getElementById("wishlistPanel").style.right = "-100%";
+  document.getElementById("wishlistPanel").style.right = "-450px";
 }
 
 function addToWishlist(index, button) {
@@ -905,4 +905,20 @@ contactForm.addEventListener("submit", function (event) {
   showToast("✅ Message sent successfully!");
 
   contactForm.reset();
+});
+
+// MOBILE MENU (hamburger button)
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", function (e) {
+  e.stopPropagation();
+  mobileMenu.classList.toggle("hidden");
+});
+
+// close the menu after a link is tapped
+mobileMenu.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    mobileMenu.classList.add("hidden");
+  });
 });
